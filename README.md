@@ -1,12 +1,12 @@
-# FAstar
+# DConBN
 ## 算法介绍
-本项目提出了一种基于优化IDA星的贝叶斯网络学习研究方法 FAstar
+本项目提出了一种基于优化IDA星的贝叶斯网络学习研究方法 DConBN
 
 (1) 使用逆序图构建搜索树，并采用位向量和位操作让变量修改更为高效。在拓展过程中进行深度优先搜索，忽略搜索过程中不符合估计函数的节点，实现对搜索深度的限制，减少了无效搜索的花销
 
 (2) 采用线性表作为搜索节点的存储结构，保存节点的唯一标志信息，在方便检索的同时大大减少内存空间占用。对节点的插入进行局部优化，提高搜索的最优性，避免高额的排序开销
 
-(3) 根据BN特点对搜索图进行分枝剪除，减少浪费在低效路径上的搜索。实验结果表明，FAstar算法不仅可以处理变量数量更多的数据，而且还明显提高了精确度和运行效率
+(3) 根据BN特点对搜索图进行分枝剪除，减少浪费在低效路径上的搜索。实验结果表明，DConBN算法不仅可以处理变量数量更多的数据，而且还明显提高了精确度和运行效率
 
 ## 操作环境配置
 该项目需要在Ubuntu系统上运行，以下配置假定使用纯Ubuntu 18.04 x64
@@ -121,16 +121,16 @@
 2. 您可以在下载文件夹中获得完整的Asia（样本大小为500、1000）和Child数据集（样本大小分别为500、1000和5000）。亚洲有8个变量，儿童有20个变量。数据包中提供的原始CSV数据需要通过“得分”方法转换为可运行的PSS文件
 3. 如果要添加约束，则可以使用命令“score --help”查找命令的格式
 ## 根据分数文件获取贝叶斯网络
-本模块将介绍如何在FAstar算法中生成贝叶斯网络。首先，您需要下载代码包：FAstar.zip，另请参见下载文件夹。
+本模块将介绍如何在DConBN算法中生成贝叶斯网络。首先，您需要下载代码包：DConBN.zip，另请参见下载文件夹。
 ### 建立贝叶斯网络
 ```
 1. 使用 "make" 命令构建项目
-	cd FAstar
+	cd DConBN
 	make
-2. 将pss文件放到以下目录:FAstar/dist/Debug_astar/GNU-Linux-x86，当然你也可以在运行时指定文件目录
+2. 将pss文件放到以下目录:DConBN/dist/Debug_astar/GNU-Linux-x86，当然你也可以在运行时指定文件目录
 3. 使用 astar-debug.exe 来获取网络
 	./astar-debug asia_s500_v1.pss
-	xxx@xxx:~/FAstar/dist/Debug_astar/GNU-Linux-x86$ ./astar-debug asia_s500_v1.pss
+	xxx@xxx:~/DConBN/dist/Debug_astar/GNU-Linux-x86$ ./astar-debug asia_s500_v1.pss
 	URLearning, DFBnB
   Dataset: 'asia_s500_v1.pss'
   Net file: ''
